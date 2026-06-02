@@ -35,38 +35,47 @@ public class AutoRequest {
     }
 
     public int getAutoId() {
+
         return autoId;
     }
 
-    public void setAutoId(int autoId) {
+    public void setAutoId(int autoId)
+    {
         this.autoId = autoId;
     }
 
     public String getModelo() {
+
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(String modelo)
+    {
         this.modelo = modelo;
     }
 
     public int getAño() {
+
         return año;
     }
 
     public void setAño(int año) {
+
         this.año = año;
     }
 
     public String getTipo() {
+
         return tipo;
     }
 
     public void setTipo(String tipo) {
+
         this.tipo = tipo;
     }
 
     public int getMarcaId() {
+
         return marcaId;
     }
 

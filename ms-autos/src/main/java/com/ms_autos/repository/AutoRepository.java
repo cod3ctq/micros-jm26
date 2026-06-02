@@ -31,7 +31,4 @@ public interface AutoRepository extends JpaRepository<Autos, Integer> {
     @Query("SELECT COUNT(a.autoId) FROM Autos a WHERE a.marcaId =:marca")
     Integer getCountByMarca(@Param("marca") int marca);
 
-
-
-
 }
