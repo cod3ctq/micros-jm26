@@ -14,12 +14,21 @@ import java.util.Optional;
 @Repository // Establece la responsabilidad de las operaciones de acceso a datos (DAO)
 public interface AutoRepository extends JpaRepository<Autos, Integer> {
 
-    @Query("SELECT t FROM Tarjetas t WHERE t.modelo =:modelo")
-    Optional<List<Autos>> findByModelo(@Param("modelo") String modelo);
+    //Aqui ya existen las operaciones basicas resueltas
+    //si necesito algo mas elaborado, tendre que resolverlo aqui, mediante JPQL - Consultas orientadas a objetos
 
-  ", modelo='" + modelo + '\'' +
-            ", año=" + año +
-            ", tipo='" + tipo + '\'' +
-            ", marcaId=" + marcaId +
-            '}';
+    //@Query sirve para desarrollar en lenguaje JPQL la consulta personalizada que necesitemos
+    @Query("SELECT a FROM Autos a WHERE a.marcaId =:id")
+    Optional<List<Autos>> findByMarcaId(@Param("id")int id);
+
+    @Query("SELECT a FROM Autos a WHERE a.tipo =:descripcion")
+    Optional<List<Autos>> findByTipo(@Param("descripcion")String descripcion);
+
+    //consulta: buscar cuantos autos existen con ese mismo modelo
+    @Query("SELECT COUNT(a.autoId) FROM Autos a WHERE a.modelo =:modelo")
+    Integer getCountByModel(@Param("modelo") String modelo);
+
+    @Query("SELECT COUNT(a.autoId) FROM Autos a WHERE a.marcaId =:marca")
+    Integer getCountByMarca(@Param("marca") int marca);
+
 }
