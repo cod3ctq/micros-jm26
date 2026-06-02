@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class Autos implements Serializable {
 
     @Id //Designa que atributo sera la PK de esta entidad
-    @Column(name="AUTO_ID", columnDefinition = "NUMBER") //Enlaza el atributo con la columna
+    @Column(name="MODELO_ID", columnDefinition = "NUMBER") //Enlaza el atributo con la columna
     @GeneratedValue(strategy = GenerationType.IDENTITY) //Configura la estrategia de generacion del id
     private int autoId;
     @Column(name="MODELO", columnDefinition = "NVARCHAR2(15)")
@@ -25,6 +25,8 @@ public class Autos implements Serializable {
     private int marcaId;
     @Column(name="FECHA_REGISTRO", columnDefinition = "DATE")
     private LocalDate fechaRegistro;
+    @Column(name="FECHA_ACT", columnDefinition = "DATE")
+    private LocalDate fechaAct;
 
     //No necesito constructores : utiliza el default(vacio) que Java otorga
 
@@ -74,5 +76,13 @@ public class Autos implements Serializable {
 
     public void setFechaRegistro(LocalDate fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
+    }
+
+    public LocalDate getFechaAct() {
+        return fechaAct;
+    }
+
+    public void setFechaAct(LocalDate fechaAct) {
+        this.fechaAct = fechaAct;
     }
 }
