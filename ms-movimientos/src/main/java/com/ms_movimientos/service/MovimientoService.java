@@ -3,7 +3,9 @@ package com.ms_movimientos.service;
 import com.ms_movimientos.dto.MovimientoRequest;
 import com.ms_movimientos.dto.MovimientoResponse;
 import com.ms_movimientos.entity.Movimientos;
+import org.springframework.cglib.core.Local;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +18,7 @@ public interface MovimientoService {
     List mostrar();
 
     List buscarPorTipo(String tipo);
-    List buscarPorFecha(Date fechaOp);
+    List buscarPorFecha(LocalDate fechaOp);
 
     //List buscarPorMonto(double monto);
 }
