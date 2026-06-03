@@ -1,14 +1,18 @@
 package com.ms_medios_pago.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.*;
 
 import jakarta.persistence.Column;
 //DTO
 //MAPEA LOS DATOS QUE LLEGARON
+@Schema(description = "DTO para registrar o actualizar un medio de pago")
 public class MedioPagoRequest {
 
+    @Schema(description = "Identificador del medio_pago", example = "1")
     private int medioId;
 
+    @Schema(description = "Descripcion del medio_pago", example = "TRANSFERENCIA")
     @NotBlank(message = "La descripcion no puede quedar vacia")
     @Size(message = "La descripcion solo acepta hasta 100 caracteres", max = 100)
     private String descripcion;
