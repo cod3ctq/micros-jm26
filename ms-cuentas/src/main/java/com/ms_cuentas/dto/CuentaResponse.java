@@ -1,14 +1,23 @@
 package com.ms_cuentas.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDate;
 
+@Schema(description = "DTO parade respuesta con los datos procesados de la cuenta")
 public class CuentaResponse {
 
+    @Schema(description = "Tipo de cuenta", example = "1")
     private int tipoCuenta;
+    @Schema(description = "Numero de cuenta", example = "1000000001")
     private String numCuenta;
+    @Schema(description = "Numero de CLABE", example = "002180000000000001")
     private String clabe;
+    @Schema(description = "Saldo de la cuenta", example = "1000")
     private double saldo;
+    @Schema(description = "Fecha de apertura de la cuenta", example = "01-JUN-26")
     private LocalDate fechaAp;
+    @Schema(description = "Fecha de alguna actualizacion", example = "01-JUN-26")
     private LocalDate fechaAc;
 
     public CuentaResponse(int tipoCuenta, String numCuenta, String clabe, double saldo, LocalDate fechaAp, LocalDate fechaAc) {
