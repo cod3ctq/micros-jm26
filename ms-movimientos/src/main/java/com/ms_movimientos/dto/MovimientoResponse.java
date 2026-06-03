@@ -1,12 +1,20 @@
 package com.ms_movimientos.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDate;
 
 //Mapean los objetos de salida del servicio hacia el cliente
+@Schema(description = "DTO de respuesta con los datos procesados del movimiento ")
 public class MovimientoResponse {
 
+    @Schema(description = "Descripcion del tipo de movimiento", example = "DEPOSITO")
     private String tipo;
+
+    @Schema(description = "Fecha del guardado del movimiento", example = "02/06/2026")
     private LocalDate fechaOP;
+
+    @Schema(description = "descripcion del Monto del movimiento ", example = "5000.00")
     private double monto;
 
 
