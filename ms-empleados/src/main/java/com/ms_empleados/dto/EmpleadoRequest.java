@@ -1,5 +1,6 @@
 package com.ms_empleados.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
@@ -7,24 +8,33 @@ import jakarta.validation.constraints.Size;
 
 // Capa 3: Clase DTO: Transmisión de datos
 // Se llama Request (petición) porque mapea los datos que llegarán en las peticiones hacia este servicio
+@Schema(description = "DTO para registrar o actualizar un empleado") // Se utiliza para documentar modelos (DTOs, Entities o Responses) en Swagger UI
 public class EmpleadoRequest {
     // Atributos
+    @Schema(description = "Identificador del empleado", example = "1")
     private int empleadoId;
+    @Schema(description = "Identificador del rol del empleado", example = "1")
     @Positive // Anotación para indicar que tiene que ser un número positivo
     private int rolId;
+    @Schema(description = "Nombre del empleado", example = "CARLOS")
     @NotBlank(message = "El nombre no puede quedar vacío o nulo") // Anotaciones genéricas de validaciones
     @Size(message = "El nombre permite hasta 100 caracteres", max = 100) // Anotación para indicar el tamaño del campo
     private String nombre;
+    @Schema(description = "Apellido paterno del empleado", example = "ORTIZ")
     @NotBlank(message = "El apellido paterno no puede quedar vacío o nulo") // Anotación para indicar que tiene que haber información en el campo
     @Size(message = "El apellido paterno permite hasta 100 caracteres", max = 100)
     private String apP;
+    @Schema(description = "Apellido materno del empleado", example = "CORNEJO")
     @Size(message = "El apellido materno permite hasta 100 caracteres", max = 100)
     private String apM;
+    @Schema(description = "Correo electrónico del empleado", example = "correo@trabajo.com")
     @Size(message = "El correo permite hasta 100 caracteres", max = 100)
     private String correo;
+    @Schema(description = "Número de teléfono del empleado", example = "4567891230")
     @Pattern(regexp = "^[0-9]+$", message = "El campo sólo debe contener números") // Anotación para indicar que en un String sólo se permiten números
     @Size(message = "El teléfono permite hasta 10 caracteres", max = 10)
     private String tel;
+    @Schema(description = "Descripción del status del empleado", example = "ACTIVO")
     @Size(message = "El status permite hasta 50 caracteres", max = 100)
     private String status;
 

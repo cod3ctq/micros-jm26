@@ -1,13 +1,20 @@
 package com.ms_empleados.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;
 
 // Clase que mapea los Objetos de salida del servicio hacia el cliente, sólo lo que queramos mostrar de regreso
+// Se llama Response (respuesta) porque porque mapean los Objetos de salida del Servicio hacia el cliente
+@Schema(description = "DTO de respuesta con los datos procesados del empleado") // Se utiliza para documentar modelos (DTOs, Entities o Responses) en Swagger UI
 public class EmpleadoResponse {
     // Atributos
+    @Schema(description = "Nombre del empleado", example = "CARLOS")
     private String nombre;
+    @Schema(description = "Apellido paterno del empleado", example = "ORTIZ")
     private String apP;
+    @Schema(description = "Apellido materno del empleado", example = "CORNEJO")
     private String apM;
+    @Schema(description = "Fecha de ingreso del empleado", example = "01/01/2023")
     private LocalDate fechaIn;
 
     // Constructor

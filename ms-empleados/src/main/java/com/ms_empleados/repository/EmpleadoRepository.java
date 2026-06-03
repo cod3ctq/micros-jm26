@@ -10,7 +10,7 @@ import java.util.Optional;
 
 // Capa 2: DAO
 // Indicamos que este Interfaz hereda de otra Interfaz y los tipos de dato con los que trabajará (Objeto identity y el tipo de dato de la PK
-@Repository // Establece la responsabilidad de las operaciones de accedo a datos (DAO)
+@Repository // Establece la responsabilidad de las operaciones de accedo a datos (DAO) es quien se comunica con la db
 public interface EmpleadoRepository extends JpaRepository<Empleados, Integer> {
     // Aquí ya existen las operaciones básicas resueltas
     // Si se necesita algo más elaborado se tendrá que resolver aquí mediante JPQL - Consultas orientadas a Objetos, no a las tablas
