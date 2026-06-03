@@ -1,13 +1,27 @@
 package com.ms_autos.dto;
 
+
+import jakarta.validation.constraints.*;
+
 // 3
 //DTO: Transmision datos
 //Se llama Request (peticion) por que mapea los datos que llegaran en las peticiones hacia este servicio
 public class AutoRequest {
     private int autoId;
+
+    @NotBlank(message="El modelo no puede quedar vacio o nulo")
+    @Size(message="El modelo permite hasta 15 caracteres", max = 15)
     private String modelo;
+
+    @Digits(integer = 4, fraction = 0)
+    @Min(value=1980, message = "El año del auto no debe ser menor a 1980")
     private int año;
+
+    @NotBlank(message="El tipo no puede quedar vacio o nulo")
+    @Size(message="El tipo permite hasta 15 caracteres", max = 15)
     private String tipo;
+
+    @Digits(integer = 1, fraction = 0)
     private int marcaId;
 
     public AutoRequest(){}
