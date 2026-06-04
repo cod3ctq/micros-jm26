@@ -1,15 +1,27 @@
 package com.ns_cuenta.dto;
 
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.time.LocalDate;
 
-//Mapean los objetos de salida del servicio hacia el cliente
+//Se llama Response (respuesta) por que mapean los objetos de salida del servicio hacia el cliente
+@Schema(description = "DTO de respuesta con los datos procesado de la cuenta")
 public class TipoCuentaResponse {
 
+    @Schema(description = "Descripcion del numero de cuenta", example = "1")
     private int tipo;
+
+    @Schema(description = "Descripcion del tipo de cuenta", example = "AHORRO BASICA")
     private String descripcion;
+
+    @Schema(description = "Saldo minimo de la cuenta", example = "1000")
     private double saldoMin;
+
+    @Schema(description = "Saldo maximo de la cuenta", example = "1000")
     private double saldoMax;
+
+    @Schema(description = "Fecha del guardado de la cuenta", example = "02/06/2026")
     private LocalDate fechaRegistro;
 
 
