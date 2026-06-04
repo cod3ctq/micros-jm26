@@ -1,24 +1,36 @@
 package com.ms_tarjetas.dto;
 
 import java.time.LocalDate;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 //#3
 // DTO: Transmision datos
 // se llama Request(peticion) por que mapea los datos que llegaran en las peticines hacie este servicio
-
+@Schema (description = "DTO para registrar o actualizar un auto")
 public class TarjetasRequest {
     private int tarjetaId;
 //@NotBlank(message = "El modelo no puede quedar vacio o nulo")
 //@Size(message = "Modelo permite hasta 15 caracteres", max=15)
 
+    @Schema(description = "identificador de tarjetas", example ="1")
     private int cuentaId;
-    private int tipoTarjetaId;
+
+    @Schema(description = "Descripcion del tipo de tarjeta", example = "NOMINA") private int tipoTarjetaId;
+
+    @Schema(description = "Numero de tarjeta")
     @Size(message = "Num tarjeta deberia tener hasta 16 caracteres", max=16, min=16)
     private String numTarjeta;
+
+    @Schema(description = "NUmero de nip")
     private String nip;
+
+    @Schema(description = "Fecha de vencimiento de la tarjeta")
     private LocalDate fechaVen;
+
+    @Schema(description = "Estado de la tarjeta", example = "INACTIVO")
     private String status;
 
     public TarjetasRequest(){}
